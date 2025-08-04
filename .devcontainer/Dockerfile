@@ -19,16 +19,6 @@ RUN if [ "${INSTALL_MAVEN}" = "true" ]; then su vscode -c "umask 0002 && . /usr/
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install --no-install-recommends \
     net-tools \
-    iputils-ping \
-    dnsutils \
-    curl \
-    wget \
-    telnet \
-    jq \
-    lsof \
-    htop \
-    nano \
     postgresql-client \
     redis-tools && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
