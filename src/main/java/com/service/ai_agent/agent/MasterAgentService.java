@@ -23,13 +23,14 @@ public class MasterAgentService {
     private final @Qualifier("defaultOrchestrationWorkflow") OrchestrationWorkflow orchestrationWorkflow;
 
     public String processRequest(ChatRequest chatRequest) {
-        AgentRequest agentRequest = new AgentRequest(
-                chatRequest.userId(),
-                chatRequest.sessionId(),
-                chatRequest.tenantId(),
-                chatRequest.message(),
-                Map.of()
-        );
+        AgentRequest agentRequest = AgentRequest.builder()
+                .userId(chatRequest.getUserId())
+                .sessionId(chatRequest.getSessionId())
+                .tenantId(chatRequest.getTenantId())
+                .input(chatRequest.getInput())
+                .metadata(chatRequest.getMetadata())
+                .context(chatRequest.getContext())
+                .build();
 
         String route = router.determineRoute(agentRequest);
         System.out.println("Determined Route: " + route);

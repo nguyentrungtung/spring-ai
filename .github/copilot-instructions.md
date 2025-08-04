@@ -94,8 +94,6 @@ pom.xml
 - **Never hard-code**
 
 ## Key Business Requirements
-- **User Management**: CRUD, search, pagination
-- **RBAC**: Role-based access control with granular permissions, runtime evaluation, inheritance
 - **No Authentication**: Service assumes requests are pre-authenticated
 
 ## Critical Development Patterns
@@ -110,9 +108,9 @@ pom.xml
 
 ## Development Environment
 - **Container Setup**: Java 21, Maven, PostgreSQL 15.4
-- **Database**: `postgres/postgres/postgres` at localhost:5432
+- **Database**: `postgres/postgres/postgres` at postgres_ai_agent:5432
 - **pgAdmin**: localhost:5050 (`admin@admin.com/admin`)
-- **Application Ports**: 8081 (main API)
+- **Application Ports**: 8080 (main API)
 
 ## Testing Strategy
 - **Unit Tests**: Domain logic, validation, mapping

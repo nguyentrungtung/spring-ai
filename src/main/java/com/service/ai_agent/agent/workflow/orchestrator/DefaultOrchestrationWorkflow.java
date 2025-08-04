@@ -23,7 +23,7 @@ public class DefaultOrchestrationWorkflow implements OrchestrationWorkflow {
 
     @Override
     public AgentResponse process(AgentRequest request) {
-        String context = memoryService.retrieveContext(request.getSessionId());
+        String context = memoryService.retrieveContext(request.getSessionId(), request.getTenantId());
         String systemPromptText = promptFactory.createSystemPrompt(context);
         SystemMessage systemMessage = new SystemMessage(systemPromptText);
         UserMessage userMessage = new UserMessage(request.getInput());
